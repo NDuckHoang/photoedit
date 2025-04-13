@@ -216,12 +216,7 @@ input[type=range]::-moz-range-thumb:hover {
         height: 400px;
         max-width: 100%;
     }
-
-    canvas {
-        width: 100% ; 
-        height: auto ;
-    }
-
+    
     .controls {
         width: 100%;
     }
