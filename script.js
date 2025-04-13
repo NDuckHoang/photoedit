@@ -44,6 +44,10 @@ function resetSlider(id) {
 }
 
 function drawToCanvas() {
+    const preview = document.querySelector('.preview');
+    canvas.width = preview.clientWidth;
+    canvas.height = preview.clientHeight;
+
     const tempCanvas = document.createElement('canvas');
     const tempCtx = tempCanvas.getContext('2d');
     tempCanvas.width = img.width;
@@ -53,11 +57,15 @@ function drawToCanvas() {
     const scale = Math.min(canvas.width / img.width, canvas.height / img.height);
     const w = img.width * scale;
     const h = img.height * scale;
+    const x = (canvas.width - w) / 2;
+    const y = (canvas.height - h) / 2;
+
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.drawImage(tempCanvas, (canvas.width - w) / 2, (canvas.height - h) / 2, w, h);
+    ctx.drawImage(tempCanvas, 0, 0, img.width, img.height, x, y, w, h);
 
     originalImage = ctx.getImageData(0, 0, canvas.width, canvas.height);
 }
+
 
 function applyFilters() {
     if (!originalImage) return;
