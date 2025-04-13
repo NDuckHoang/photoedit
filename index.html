@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Photo Editor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <h1>Photo Color Editor</h1>
+    <p class="subtitle">By Duc Hoang, Dung Tien, Dinh Trung</p>
+    <div class="container">
+        <div class="preview">
+            <canvas id="canvas" width="600" height="730"></canvas>
+        </div>
+        <div class="controls">
+            <label for="upload" class="upload-label">
+                <i class="fas fa-upload"></i> Upload
+            </label>
+            <input type="file" id="upload" accept="image/*" style="display: none;">
+
+            <div class="control-group">
+                <h2>Basic Adjustments</h2>
+                <label for="brightness">Brightness</label>
+                <div class="range-container">
+                    <input type="range" id="brightness" min="0" max="200" value="100">
+                    <button class="reset-button" onclick="resetSlider('brightness')"><i class="fas fa-undo"></i></button>
+                </div>
+
+                <label for="contrast">Contrast</label>
+                <div class="range-container">
+                    <input type="range" id="contrast" min="0" max="200" value="100">
+                    <button class="reset-button" onclick="resetSlider('contrast')"><i class="fas fa-undo"></i></button>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <h2>Color Adjustments</h2>
+                <label for="red">Red</label>
+                <div class="range-container">
+                    <input type="range" id="red" min="0" max="200" value="100">
+                    <button class="reset-button" onclick="resetSlider('red')"><i class="fas fa-undo"></i></button>
+                </div>
+
+                <label for="green">Green</label>
+                <div class="range-container">
+                    <input type="range" id="green" min="0" max="200" value="100">
+                    <button class="reset-button" onclick="resetSlider('green')"><i class="fas fa-undo"></i></button>
+                </div>
+
+                <label for="blue">Blue</label>
+                <div class="range-container">
+                    <input type="range" id="blue" min="0" max="200" value="100">
+                    <button class="reset-button" onclick="resetSlider('blue')"><i class="fas fa-undo"></i></button>
+                </div>
+
+                <label for="hue">Hue</label>
+                <div class="range-container">
+                    <input type="range" id="hue" min="-180" max="180" value="0">
+                    <button class="reset-button" onclick="resetSlider('hue')"><i class="fas fa-undo"></i></button>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="reset-all-button" onclick="reset()">Reset</button>
+                <button class="download-button" onclick="download()">Download</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
